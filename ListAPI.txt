@@ -1,0 +1,23 @@
+List of API calls
+
+//Login to Main Landing page
+GET localhost:8080/campusnet/api/v1/login
+//Signup form
+POST localhost:8080/campusnet/api/v1/POST-signup-form
+
+//1.Course Net main page
+	GET localhost:8080/campusnet/api/v1/home/GET-course-net-form-populated
+	GET localhost:8080/campusnet/api/v1/GET-course-details	
+	GET localhost:8080/campusnet/api/v1/GET-student-profile
+	POST localhost:8080/campusnet/api/v1/course-connect/course-details/student-profile/POST-messages
+
+
+//2. My profile page
+	GET localhost:8080/campusnet/api/v1/GET-my-profile
+	POST localhost:8080/campusnet/api/v1/POST-my-profile-details
+
+//3. Market Net main page
+	GET localhost:8080/campusnet/api/v1/GET-marketplace
+
+//4. Dash Net
+GET localhost:8080/campusnet/api/v1/dashboard/GET-dashboard-details
