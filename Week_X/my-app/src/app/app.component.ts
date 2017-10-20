@@ -8,7 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app';
   visible = true;
-  toggleDiv() {
-  	this.visible = !this.visible;
-  }
+  myFavLang = [
+	  {'name': 'html', 'type': 'frontend'},
+	  {'name': 'css', 'type': 'frontend'},
+	  {'name': 'js', 'type': 'frontend'},
+	  {'name': 'ruby', 'type': 'backend'},
+  ];
 }
