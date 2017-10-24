@@ -1,0 +1,17 @@
+
+.jumbotron-style{
+background-color: rgba(131, 112, 83, 0.432);
+background-size: cover;
+background-position: center;
+}
+
+.button-style:unhover{
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+
+}
+.home-body{
+    background-color:   rgba(95, 180, 206, 1.0);
+    background-size: cover;
+   
+}
