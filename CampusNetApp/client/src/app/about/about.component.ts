@@ -50,9 +50,7 @@ export class AboutComponent implements OnInit {
         console.log("----------------------------------------");
         this.data = data.json()[0];
         console.log(this.data);
-        this.currentRow = event;
-        
-        this.source.update(this.currentRow ,this.currentRow );     
+          
       },
       error => {
         this.alertService.error(error);
