@@ -9,9 +9,9 @@ import { Ng2SmartTableModule, LocalDataSource  } from 'ng2-smart-table';
 })
 export class AboutComponent implements OnInit {
 
-  data : any = {};
+  data  = [];
   model: any = {};
-  source: LocalDataSource = new LocalDataSource(this.data);  
+  source: LocalDataSource;  
   currentRow = event;
   
 
@@ -38,7 +38,10 @@ export class AboutComponent implements OnInit {
   };
 
   constructor(private courseService: CourseService,
-    private alertService: AlertService) { }
+    
+    private alertService: AlertService) {
+      this.source = new LocalDataSource();
+     }
 
   ngOnInit() {
   }
@@ -48,9 +51,8 @@ export class AboutComponent implements OnInit {
       .subscribe(
       data => {
         console.log("----------------------------------------");
-        this.data = data.json()[0];
+        this.data = data.json();
         console.log(this.data);
-          
       },
       error => {
         this.alertService.error(error);
