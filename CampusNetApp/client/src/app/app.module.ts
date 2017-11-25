@@ -13,7 +13,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ToasterModule, ToasterService, ToasterConfig} from 'angular2-toaster';
 
 import { HomeModule } from './home/home.module';
 
@@ -22,7 +23,7 @@ import { HttpModule } from '@angular/http';
 import { customHttpProvider } from './_helpers/index';
 import { AlertComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
-import { AlertService, AuthenticationService, UserService } from './_services/index';
+import { AlertService, AuthenticationService, UserService, CourseService } from './_services/index';
 
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { AboutComponent } from './about/about.component';
@@ -52,13 +53,16 @@ import { AboutComponent } from './about/about.component';
     FormsModule,
     HttpModule,
     Ng2SmartTableModule,
+    ToasterModule,
+    BrowserAnimationsModule
   ],
   providers: [
     customHttpProvider,
     AuthGuard,
     AlertService,
     AuthenticationService,
-    UserService
+    UserService,
+    CourseService
   ],
   bootstrap: [AppComponent]
 })

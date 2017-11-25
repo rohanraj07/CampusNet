@@ -7,7 +7,7 @@ var tasks = require('./routes/tasks');
 var logins = require('./routes/login');
 var register = require('./routes/register');
 var users = require('./routes/users');
-
+var course = require('./routes/course');
 
 const cors = require('cors');
 const passport = require('passport');
@@ -59,6 +59,8 @@ app.use('/api', tasks);
 app.use('/api', logins);
 app.use('/api', register);
 app.use('/users', users);
+app.use('/course', course);
+
 
 app.listen(port, function(){
     console.log('Server started on port '+port);

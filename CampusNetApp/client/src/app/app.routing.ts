@@ -14,12 +14,12 @@ import { AboutComponent } from './about/about.component';
 import { AuthGuard } from './_guards/index';
 
 const routes: Routes =[
-    { path: 'home',             component: HomeComponent },
-    { path: 'user-profile',     component: ProfileComponent },
-    { path: 'signup',           component: SignupComponent },
+    { path: 'home',             component: HomeComponent, canActivate: [AuthGuard] },
+    { path: 'user-profile',     component: ProfileComponent , canActivate: [AuthGuard] },
+    { path: 'signup',           component: SignupComponent , canActivate: [AuthGuard] },
     { path: 'login',            component: LoginComponent },
     { path: 'landing',          component: LandingComponent },
-    { path: 'about',          component: AboutComponent },
+    { path: 'about',          component: AboutComponent , canActivate: [AuthGuard] },
     
     { path: '', redirectTo: 'landing', pathMatch: 'full' },
 ];

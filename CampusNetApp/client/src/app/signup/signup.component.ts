@@ -4,32 +4,40 @@ import { Router } from '@angular/router';
 import { AlertService, UserService } from '../_services/index';
 
 @Component({
-    selector: 'app-signup',
-    templateUrl: './signup.component.html',
-    styleUrls: ['./signup.component.scss']
+   selector: 'app-signup',
+   templateUrl: './signup.component.html',
+   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-    model: any = {};
-    test : Date = new Date();
-    loading = false;
+   model: any = {};
+   test: Date = new Date();
+   loading = false;
 
-    constructor(private router: Router,
-        private userService: UserService,
-        private alertService: AlertService) { }
+   constructor(private router: Router,
+       private userService: UserService,
+       private alertService: AlertService) { }
 
-    ngOnInit() {}
+   ngOnInit() { }
 
-    register() {
-        this.loading = true;
-        this.userService.create(this.model)
-            .subscribe(
-                data => {
-                    this.alertService.success('Registration successful', true);
-                    this.router.navigate(['/landing']);
-                },
-                error => {
-                    this.alertService.error(error);
-                    this.loading = false;
-                });
-    }
+   register() {
+       this.loading = true;
+       this.userService.create(this.model)
+           .subscribe(
+           data => {
+               console.log(data.json());
+
+               if (data.json().success === true) {
+                   this.alertService.success('Registration successful', true);
+                   this.router.navigate(['/landing']);
+               } else {
+                   this.alertService.error('Username Already exist', true);
+                   //this.router.navigate(['/landing']);
+               }
+
+           },
+           error => {
+               this.alertService.error(error);
+               this.loading = false;
+           });
+   }
 }

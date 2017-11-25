@@ -20,5 +20,37 @@
   about works!
   about works!
   about works!
-</p>yj
-<ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+</p>
+
+<!-- <div *ngIf="edited" class="alert alert-success box-msg" role="alert">
+  <strong>List Saved!</strong> Your changes has been saved.
+</div> -->
+
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+          <div class="card card-register bg-dark">
+              <h3 class="title" style="color:white">Register</h3>
+
+                    <form class="register-form" (ngSubmit)="f.form.valid && search()" #f="ngForm" novalidate>
+                       
+                        <div class="form-group" [ngClass]="{ 'has-error': f.submitted }">
+                                <label for="Major">Major</label>
+                                <input type="text" class="form-control" name="courseMajor" [(ngModel)]="model.courseMajor" #courseMajor="ngModel" required />
+                                
+                            </div>
+                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted }">
+                                <label for="courseSem">Course Sem</label>
+                                <input type="text" class="form-control" name="courseSem" [(ngModel)]="model.courseSem" #courseMajor="ngModel" required />
+                            </div>                          
+                            <div class="form-group">
+                                
+                                <button class="btn btn-success btn-block btn-round">Search</button>
+                                
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<ng2-smart-table [settings]="settings" [source]="data" (custom)="onCustom($event)"></ng2-smart-table>

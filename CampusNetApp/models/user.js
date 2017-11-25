@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const config = require('../config/database');
+const autoIncrement = require('mongoose-auto-increment');
+var connection = mongoose.createConnection(config.database);
+
+autoIncrement.initialize(connection);
 
 // User Schema
 const UserSchema = mongoose.Schema({
@@ -24,6 +28,7 @@ const UserSchema = mongoose.Schema({
   }
 });
 
+UserSchema.plugin(autoIncrement.plugin, 'User');
 const User = module.exports = mongoose.model('User', UserSchema);
 
 module.exports.getUserById = function(id, callback){
