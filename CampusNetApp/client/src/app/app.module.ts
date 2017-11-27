@@ -27,6 +27,7 @@ import { AlertService, AuthenticationService, UserService, CourseService } from 
 
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { AboutComponent } from './about/about.component';
+import { CoursedetailsComponent } from './coursedetails/coursedetails.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { AboutComponent } from './about/about.component';
     FooterComponent,
     AlertComponent,
     AboutComponent,
+    CoursedetailsComponent,
   
 
   ],

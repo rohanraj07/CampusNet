@@ -46,6 +46,10 @@ const CourseSchema = mongoose.Schema({
     courseTextbooks: [{
         textbookTitle: String,
         textbookAuthor: String
+    }],
+
+    comments: [{
+        type:String
     }]
 
 });

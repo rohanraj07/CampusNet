@@ -9,17 +9,18 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
 import { AboutComponent } from './about/about.component';
-
+import { CoursedetailsComponent } from './coursedetails/coursedetails.component';
 
 import { AuthGuard } from './_guards/index';
 
 const routes: Routes =[
     { path: 'home',             component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'user-profile',     component: ProfileComponent , canActivate: [AuthGuard] },
-    { path: 'signup',           component: SignupComponent , canActivate: [AuthGuard] },
+    { path: 'signup',           component: SignupComponent},
     { path: 'login',            component: LoginComponent },
     { path: 'landing',          component: LandingComponent },
-    { path: 'about',          component: AboutComponent , canActivate: [AuthGuard] },
+    { path: 'about',            component: AboutComponent , canActivate: [AuthGuard] },
+    { path: 'course-details',    component: CoursedetailsComponent , canActivate: [AuthGuard] },
     
     { path: '', redirectTo: 'landing', pathMatch: 'full' },
 ];

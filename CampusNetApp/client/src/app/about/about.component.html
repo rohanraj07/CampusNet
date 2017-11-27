@@ -60,7 +60,7 @@
                           <td>{{user.courseName}}</td>
                           <td>{{user.courseInstructor}}</td>
                           <td>{{user.courseSem}}</td>
-                    
+                          <td><a [routerLink]="['/course-details']" [queryParams]="{ id: [user._id] }">Course Detail</a></td>
                           <td>
                           </td>
                         </tr>

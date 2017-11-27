@@ -7,7 +7,11 @@ export class CourseService {
 
   constructor(private http: Http) { }
 
-  getCoursesMajorSem(model){
+  getById(_id: string) {
+    return this.http.get('/course/getCourseById/' + _id).map((response: Response) => response.json());
+  }
+
+  getCoursesMajorSem(model) {
     return this.http.post('/course/search-course-by-major-sem', model);
   }
 }

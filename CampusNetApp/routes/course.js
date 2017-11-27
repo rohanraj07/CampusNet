@@ -21,4 +21,19 @@ router.post('/search-course-by-major-sem', (req, res) => {
       });
   });
 
+  // Search Courses by id
+router.get('/getCourseById/:id', (req, res) => {
+    
+    const id = req.params.id;
+    
+    Course.getCourseById(id, (err, courses) => {
+        
+        if(err){
+            throw err;
+        }else{
+            return res.json(courses);
+        }
+      });
+  });
+
 module.exports = router;
