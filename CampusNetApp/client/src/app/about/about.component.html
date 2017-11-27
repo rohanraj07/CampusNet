@@ -32,24 +32,6 @@
           <div class="card card-register bg-dark">
               <h3 class="title" style="color:white">Register</h3>
 
-                  <!--   <form class="register-form" (ngSubmit)="f.form.valid && search()" #f="ngForm" novalidate>
-                       
-                        <div class="form-group" [ngClass]="{ 'has-error': f.submitted }">
-                                <label for="Major">Major</label>
-                                <input type="text" class="form-control" name="courseMajor" [(ngModel)]="model.courseMajor" #courseMajor="ngModel" required />
-                                
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted }">
-                                <label for="courseSem">Course Sem</label>
-                                <input type="text" class="form-control" name="courseSem" [(ngModel)]="model.courseSem" #courseMajor="ngModel" required />
-                            </div>                          
-                            <div class="form-group">
-                                
-                                <button class="btn btn-success btn-block btn-round">Search</button>
-                                
-                            </div>
-                    </form> -->
-
                 </div>
                 <label for="Major">Major</label>
                 <input type="text" class="form-control" name="courseMajor" [(ngModel)]="model.courseMajor" #courseMajor="ngModel" required />
@@ -59,36 +41,6 @@
             </div>
         </div>
     </div>
-<!--<ng2-smart-table [settings]="settings" [source]="data" (custom)="onCustom($event)"></ng2-smart-table>-->
-
-
-  <!--<table id="customers" class="table table-striped table-bordered table-dark">
-    <thead class="table-align">
-    <tr class="table-primary table-align">
-      <th>Course code</th>
-      <th>Course Instructor</th>
-      <th>Course Sem</th>
-      <th>Meeting Time</th>
-      <th>Links</th>
-      <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="table-success table-align" *ngFor="let user of data">
-      <th scope="row">{{user._id}}</th>
-      <td>{{user.courseName}}</td>
-      <td>{{user.courseInstructor}}</td>
-      <td>{{user.courseSem}}</td>
-
-      <td>
-      </td>
-    </tr>
-
-    </tbody>
-  </table>
--->
-
-  
   
 <div class="container">
 <table>
