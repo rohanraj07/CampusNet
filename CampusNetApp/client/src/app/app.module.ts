@@ -56,7 +56,8 @@ import { CoursedetailsComponent } from './coursedetails/coursedetails.component'
     HttpModule,
     Ng2SmartTableModule,
     ToasterModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    
   ],
   providers: [
     customHttpProvider,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
+import {MomentModule} from 'angular2-moment/moment.module';
 
 import { CourseService } from '../_services/index';
 @Component({
@@ -7,8 +8,11 @@ import { CourseService } from '../_services/index';
   templateUrl: './coursedetails.component.html',
   styleUrls: ['./coursedetails.component.css']
 })
+
 export class CoursedetailsComponent implements OnInit {
   order: string;
+  lastUpdated :Date;
+
   constructor(private courseService: CourseService,
     private route: ActivatedRoute,
     private router: Router) {
@@ -22,6 +26,8 @@ export class CoursedetailsComponent implements OnInit {
 
         });
     });
+
+    this.lastUpdated = new Date();
   }
 
   ngOnInit() { }

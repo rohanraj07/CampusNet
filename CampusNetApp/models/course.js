@@ -49,7 +49,9 @@ const CourseSchema = mongoose.Schema({
     }],
 
     comments: [{
-        type:String
+        user : String,
+        time:Date,
+        comment:String
     }]
 
 });

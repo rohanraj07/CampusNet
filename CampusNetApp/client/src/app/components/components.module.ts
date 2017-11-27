@@ -12,6 +12,7 @@ import { ComponentsComponent } from './components.component';
 import { NotificationComponent } from './notification/notification.component';
 import { NgbdModalComponent } from './modal/modal.component';
 import { NgbdModalContent } from './modal/modal.component';
+import { MomentModule } from 'angular2-moment';
 
 @NgModule({
     imports: [
@@ -19,7 +20,8 @@ import { NgbdModalContent } from './modal/modal.component';
         FormsModule,
         NgbModule,
         NouisliderModule,
-        JWBootstrapSwitchModule
+        JWBootstrapSwitchModule,
+        MomentModule
     ],
     declarations: [
         ComponentsComponent,
