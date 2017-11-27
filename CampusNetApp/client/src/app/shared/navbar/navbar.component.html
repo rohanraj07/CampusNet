@@ -29,33 +29,33 @@
         </div>
       </nav> -->
 
-      <nav class="navbar navbar-expand-md fixed-top navbar-transparent" color-on-scroll="5">
-            <div class="container-fluid">
-                <div class="navbar-translate" >
-                        <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
+<nav class="navbar navbar-expand-md fixed-top navbar-transparent" color-on-scroll="5">
+    <div class="container-fluid">
+        <div class="navbar-translate">
+            <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
                                 <span class="navbar-toggler-bar"></span>
                                 <span class="navbar-toggler-bar"></span>
                                 <span class="navbar-toggler-bar"></span>
                             </button>
-                    <a class="navbar-brand" href="/">CAMPUSNET</a>
-                </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                        <ul class="nav navbar-nav navbar-right">
-                          <li><a href="#">Home</a></li>
-                          <li><a href="#">DashNet</a></li>
-                          <li><a href="#">CourseNet</a></li>
-                          <li><a href="#">MarketNet</a></li>
-                          <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile
+            <a class="navbar-brand" href="/">CAMPUSNET</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a [routerLink]="['/home']">Home</a></li>
+                <li><a href="#">DashNet</a></li>
+                <li><a href="#">CourseNet</a></li>
+                <li><a href="#">MarketNet</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile
                             <!-- <span class="caret"></span> --></a>
-                            <ul class="dropdown-menu">
-                              <li><a href="#">My Profile</a></li>
-                              <li><a href="#">Log out</a></li>
-                            </ul>
-                          </li>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">My Profile</a></li>
+                        <li><a href="#">Log out</a></li>
+                    </ul>
+                </li>
 
-                          <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
-                        </ul>
-                      </div>
-            </div>
-        </nav>
+                <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
