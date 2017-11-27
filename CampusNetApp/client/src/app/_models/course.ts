@@ -17,6 +17,8 @@ export class Course {
 
     courseUsers:Number[];
 
-    courseTextbooks:string[];
+    courseTextbooks:String[];
+
+    comments:String[];
     
 }
