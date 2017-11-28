@@ -27,6 +27,8 @@ import { AlertService, AuthenticationService, UserService, CourseService } from 
 
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { AboutComponent } from './about/about.component';
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CoursedetailsComponent } from './coursedetails/coursedetails.component';
 
 @NgModule({
@@ -57,6 +59,8 @@ import { CoursedetailsComponent } from './coursedetails/coursedetails.component'
     Ng2SmartTableModule,
     ToasterModule,
     BrowserAnimationsModule,
+    AngularMultiSelectModule,
+    ReactiveFormsModule,
     
   ],
   providers: [

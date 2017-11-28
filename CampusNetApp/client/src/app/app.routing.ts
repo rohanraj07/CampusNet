@@ -19,7 +19,7 @@ const routes: Routes =[
     { path: 'signup',           component: SignupComponent},
     { path: 'login',            component: LoginComponent },
     { path: 'landing',          component: LandingComponent },
-    { path: 'about',            component: AboutComponent , canActivate: [AuthGuard] },
+    { path: 'course-net',            component: AboutComponent , canActivate: [AuthGuard] },
     { path: 'course-details',    component: CoursedetailsComponent , canActivate: [AuthGuard] },
     
     { path: '', redirectTo: 'landing', pathMatch: 'full' },
