@@ -12,6 +12,7 @@ import { AboutComponent } from './about/about.component';
 import { CoursedetailsComponent } from './coursedetails/coursedetails.component';
 
 import { AuthGuard } from './_guards/index';
+import { ChatComponent } from 'app/chat/chat.component';
 
 const routes: Routes =[
     { path: 'home',             component: HomeComponent, canActivate: [AuthGuard] },
@@ -21,7 +22,7 @@ const routes: Routes =[
     { path: 'landing',          component: LandingComponent },
     { path: 'about',            component: AboutComponent , canActivate: [AuthGuard] },
     { path: 'course-details',    component: CoursedetailsComponent , canActivate: [AuthGuard] },
-    
+    { path: 'chat',    component: ChatComponent , canActivate: [AuthGuard] },
     { path: '', redirectTo: 'landing', pathMatch: 'full' },
 ];
 

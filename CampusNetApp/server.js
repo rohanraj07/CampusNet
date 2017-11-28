@@ -8,7 +8,7 @@ var logins = require('./routes/login');
 var register = require('./routes/register');
 var users = require('./routes/users');
 var course = require('./routes/course');
-
+var chat = require('./routes/chat');
 const cors = require('cors');
 const passport = require('passport');
 const mongoose = require('mongoose');
@@ -52,7 +52,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(passport.initialize());
 app.use(passport.session());
 
-require('./config/passport')(passport);
+require('./config/passport')(passport); 
 
 app.use('/', index);
 app.use('/api', tasks);
@@ -60,6 +60,7 @@ app.use('/api', logins);
 app.use('/api', register);
 app.use('/users', users);
 app.use('/course', course);
+app.use('/chat', chat)
 
 
 app.listen(port, function(){

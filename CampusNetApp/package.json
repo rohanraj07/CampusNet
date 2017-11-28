@@ -19,6 +19,7 @@
     "mongoose": "*",
     "mongoose-auto-increment": "^5.0.1",
     "passport": "*",
-    "passport-jwt": "*"
+    "passport-jwt": "*",
+    "socket.io": "^2.0.4"
   }
 }
