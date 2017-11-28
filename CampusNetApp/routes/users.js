@@ -6,7 +6,6 @@ const config = require('../config/database');
 const User = require('../models/user');
 const Course = require('../models/course');
 
-
 // Register
 router.post('/register', (req, res, next) => {
     let newUser = new User({
@@ -18,22 +17,8 @@ router.post('/register', (req, res, next) => {
         password: req.body.password,
         prevcourses: req.body.prevcourses,
         currentcourses: req.body.currentcourses,
-        
+
     });
-
-    let allCourses= newUser.prevcourses.concat(newUser.currentcourses);
-
-    for (var i = 0; i < allCourses.length; i++) {
-        Course.addUserToCourse(allCourses[i], newUser._id, newUser.firstName + ' ' + newUser.lastName, (err, course) => {
-
-            if (err) {
-                throw err;
-            } else {
-               console.log('courses added');
-            }
-        });
-
-    }
 
     User.getUserByUsername(newUser.username, (err, user) => {
         if (err) throw err;
@@ -53,7 +38,7 @@ router.post('/register', (req, res, next) => {
         }
     });
 
-    
+
 
 });
 
@@ -96,9 +81,22 @@ router.post('/authenticate', (req, res, next) => {
     });
 });
 
+router.get('/:id', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+    const id = req.params.id;
+    User.getUserById(id, (err, user) => {
+
+        if (err) {
+            throw err;
+        } else {
+            return res.json(user);
+        }
+    });
+});
+
 // Profile
 router.get('/profile', passport.authenticate('jwt', { session: false }), (req, res, next) => {
     res.json({ user: req.user });
 });
+
 
 module.exports = router;

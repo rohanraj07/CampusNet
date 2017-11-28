@@ -1,6 +1,9 @@
 import { Component, OnInit, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
 import { ChatService } from '../_services/index';
+import { UserService } from '../_services/index';
+
 import * as io from "socket.io-client";
+import { ActivatedRoute, Router, Params } from '@angular/router';
 
 @Component({
   selector: 'app-chat',
@@ -17,7 +20,24 @@ export class ChatComponent implements OnInit, AfterViewChecked {
   msgData = { room: '', nickname: '', message: '' };
   socket = io('http://localhost:4000');
 
-  constructor(private chatService: ChatService) {}
+  constructor(private chatService: ChatService, private userService: UserService,
+    private route: ActivatedRoute,
+    private router: Router) {
+    this.route.queryParams.subscribe((params: Params) => {
+      
+            this.userService.getById(params['id']).subscribe(
+      
+              data => {
+                console.log(data);
+                this.newUser.nickname=JSON.parse(localStorage.getItem('currentUser')).user.username;
+                this.newUser.room=data.firstName;
+                this.joinRoom();
+              },
+              error => {
+      
+              });
+          });
+  }
 
   ngOnInit() {
     var user = JSON.parse(localStorage.getItem("user"));
