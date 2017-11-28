@@ -1,75 +1,75 @@
-<div class="container">
-    <div>
+<div style="background-color: gray;
+color: #fff;
+padding: 100px 25px;
+font-family: Montserrat, sans-serif;" class="jumbotron text-center">
+    <br/>
+    <h1>Course Details</h1>
+</div>
+<div class="body">
+<div class="container-fluid">
 
-        <p>{{course.courseName}}</p>
-        <p>{{course.courseInstructor}}</p>
-        <p>{{course.courseRating}}</p>
-        <div *ngFor="let item of course.courseTextbooks">
-            <p>{{item.textbookTitle}}</p>
-        </div>
-        <p>{{course.courseCode}}</p>
-    </div>
+            <div class="panel panel-danger col-sm-6">
+                    <div class="panel-heading"><h3>{{course.courseName}}</h3></div>
+                    <div class="panel-body">
+                            <h5><b>Instructor:</b> &emsp;&nbsp;&nbsp;&nbsp;  {{course.courseInstructor}}</h5>
+                            <h5><b>Rating:</b> &emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    {{course.courseRating}}</h5>
+                           <div *ngFor="let item of course.courseTextbooks">
+                            <h5><b>Textbook:</b> &emsp;&nbsp;&nbsp;&nbsp;&nbsp;  {{item.textbookTitle}}</h5>
+                            </div>
+                           <hr>
 
-
-
-    <h3 class="mb-2">Comments</h3>
-    <div class="row">
-
-        <div class="comments col-md-9" id="comments">
+    <h4><b>Comments</b></h4>
+    <br>
+    <div class="row" style="width:720px">
+        <div class="comments col-sm-6" id="comments">
 
             <!-- comment -->
-            <div *ngFor="let item of course.comments" class="row">
+            <div *ngFor="let item of course.comments" class="row" style="height:120px">
                 <div class="comment-avatar col-md-1 col-sm-2 text-center">
-                    <a href="">
-                        <img class="mx-auto rounded-circle img-fluid" src="http://demos.themes.guide/bodeo/assets/images/users/m103.jpg" alt="avatar">
-                    </a>
+                    <a><img class="mx-auto rounded-circle img-fluid" src="http://demos.themes.guide/bodeo/assets/images/users/m103.jpg" alt="avatar"></a>
                 </div>
-                <div class="col-md-11 col-sm-10">
-                    <h6 class="small comment-meta">
-                        <a href="#">{{item.user}}</a> &nbsp;&nbsp;{{item.date}} </h6>
-
-                    <p>
-                        {{item.comment}}
-                    </p>
-
+                <div style="background-color:#e6e6e6;padding:20px; height:120px; width:100%">
+                    <h6 class="small comment-meta"><a href="#">{{item.user}}</a> &nbsp;&nbsp;{{item.date}}</h6>
+                    <p>{{item.comment}}</p>
                 </div>
                 <!-- /reply is indented -->
             </div>
         </div>
-
-
     </div>
-
-    <div class="pt-2">
-        <div class="col-12">
-            <form (ngSubmit)="f.form.valid && comment()" #f="ngForm" novalidate>
-                <input type="text" class="form-control" name="comment" [(ngModel)]="commentStr" value="" required="true" />
-
-                <span class="highlight"></span>
-                <span class="bar"></span>
-
-                <button class="btn  btn-success btn-round">Comment</button>
-            </form>
+    <div class="pt-2" style="height:120px">
+            <div class="auto">
+                <form (ngSubmit)="f.form.valid && comment()" #f="ngForm" novalidate>
+                    <!-- <textarea class="form-control" id="comment" name="comment" placeholder="Comment" rows="4"></textarea><br> -->
+                    <!-- <input type="text" class="form-control" name="comment" [(ngModel)]="commentStr" value="" required="true" /> -->
+                    <textarea class="form-control" style="padding:2px 2px" placeholder="Comment" name="comment" [(ngModel)]="commentStr" value="" required="true"></textarea>
+                    <button class="btn  btn-success btn-round">Comment</button>
+                </form>
+            </div>
         </div>
-    </div>
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title">
-                <span class="glyphicon glyphicon-bookmark"></span> Student Enrolled in this Course</h3>
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-xs-15 col-md-15" *ngFor="let item of course.courseUsers">
+</div>
+</div>
 
-                    <a [routerLink]="['/chat']" [queryParams]="{ id: [item.userCourseId] }" class="btn btn-success btn-lg" role="button">
-                        <span class="glyphicon glyphicon-user"></span>
-                        <br/>{{item.userName}}</a>
 
-                        <!-- <a [routerLink]="['/course-details']" [queryParams]="{ id: [user._id] }">Course Detail</a> -->
+<div class="col-lg-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <span class="fa fa-users"></span> Friends</h3>
+            </div>
+            <div class="panel-body">
+                <div class="rowdo">
+                    <a href="#" class="btn btn-danger btn-lg" role="button"><span class="glyphicon glyphicon-list-alt"></span> <br/>Apps</a>
+                    <a href="#" class="btn btn-warning btn-lg" role="button"><span class="glyphicon glyphicon-bookmark"></span> <br/>Bookmarks</a>
+                    <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-signal"></span> <br/>Reports</a>
+                    <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-comment"></span> <br/>Comments</a>
+                    <a href="#" class="btn btn-success btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> <br/>Users123</a>
+                    <a href="#" class="btn btn-info btn-lg" role="button"><span class="glyphicon glyphicon-file"></span> <br/>Notes</a>
+                    <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-picture"></span> <br/>Photos</a>
+                    <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-tag"></span> <br/>Tags</a>
                 </div>
             </div>
-            <a href="http://www.jquery2dotnet.com/" class="btn btn-success btn-lg btn-block" role="button">
-                <span class="glyphicon glyphicon-globe"></span> Website</a>
         </div>
     </div>
+        
+</div>
 </div>
