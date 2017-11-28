@@ -66,20 +66,38 @@ module.exports.addUser = function (newUser, callback) {
     let userId = 0;
 
     User.findOne({}, {}, { sort: { '_id': -1 } }, function (err, post) {
-        console.log(post._id);
-        for (var i = 0; i < allCourses.length; i++) {
-            
-                    //console.log(newUser);
-                    Course.addUserToCourse(allCourses[i], post._id +1 , newUser.firstName + ' ' + newUser.lastName, (err, course) => {
-            
-                        if (err) {
-                            throw err;
-                        } else {
-                            console.log('courses added');
-                        }
-                    });
-            
-                }
+        //console.log(post._id);
+
+        if(post != null){
+            for (var i = 0; i < allCourses.length; i++) {
+                
+                        //console.log(newUser);
+                        Course.addUserToCourse(allCourses[i], post._id +1 , newUser.firstName + ' ' + newUser.lastName, (err, course) => {
+                
+                            if (err) {
+                                throw err;
+                            } else {
+                                console.log('courses added');
+                            }
+                        });
+                
+                    }
+        }else{
+            for (var i = 0; i < allCourses.length; i++) {
+                
+                        //console.log(newUser);
+                        Course.addUserToCourse(allCourses[i], 1 , newUser.firstName + ' ' + newUser.lastName, (err, course) => {
+                
+                            if (err) {
+                                throw err;
+                            } else {
+                                console.log('courses added');
+                            }
+                        });
+                
+                    }
+        }
+        
     });
 
     

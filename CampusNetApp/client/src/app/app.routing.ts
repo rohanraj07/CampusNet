@@ -20,9 +20,9 @@ const routes: Routes =[
     { path: 'landing',          component: LandingComponent },
     { path: 'course-net',            component: AboutComponent , canActivate: [AuthGuard] },
     { path: 'course-details',    component: CoursedetailsComponent , canActivate: [AuthGuard] },
-    { path: 'chat',    component: ChatComponent },
+    { path: 'chat',    component: ChatComponent , canActivate: [AuthGuard] },
     {path: 'profile',  component: ProfileComponent, canActivate: [AuthGuard] },
-    {path: '', redirectTo: 'landing', pathMatch: 'full' },
+    {path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({

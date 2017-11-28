@@ -12,7 +12,7 @@ export class UserService {
     }
 
     getById(_id: string) {
-        return this.http.get('/users/' + _id).map((response: Response) => response.json());
+        return this.http.get('/users/getUserById?id=' + _id).map((response: Response) => response.json());
     }
 
     create(user: User) {

@@ -81,8 +81,9 @@ router.post('/authenticate', (req, res, next) => {
     });
 });
 
-router.get('/:id', passport.authenticate('jwt', { session: false }), (req, res, next) => {
-    const id = req.params.id;
+router.get('/getUserById', (req, res, next) => {
+    const id = req.query.id;
+    console.log(id);
     User.getUserById(id, (err, user) => {
 
         if (err) {

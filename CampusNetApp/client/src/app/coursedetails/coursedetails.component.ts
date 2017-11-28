@@ -3,6 +3,8 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import { MomentModule } from 'angular2-moment/moment.module';
 
 import { CourseService } from '../_services/index';
+import { UserService } from '../_services/index';
+
 
 import { Course } from '../_models/course';
 import { ComponentFactoryResolver } from '@angular/core/src/linker/component_factory_resolver';
@@ -20,7 +22,7 @@ export class CoursedetailsComponent implements OnInit {
 
   public counter: number = 0;
 
-  constructor(private courseService: CourseService,
+  constructor(private courseService: CourseService, private userService :UserService,
     private route: ActivatedRoute,
     private router: Router) {
 
@@ -46,6 +48,19 @@ export class CoursedetailsComponent implements OnInit {
     });
   }
 
+  getUserDetails(userCourse){
+    console.log(userCourse.userCourseId);
+    this.userService.getById(userCourse.userCourseId).subscribe(
+      
+              data => {
+                console.log(data);
+                
+              },
+              error => {
+      
+              });
+  }
+
   comment() {
 
     function CommentJson(user, comment, date) {
@@ -54,13 +69,10 @@ export class CoursedetailsComponent implements OnInit {
       this.date = date;
     }
 
-
     var commentJson = new CommentJson(JSON.parse(localStorage.getItem('currentUser')).user.username, this.commentStr, new Date());
 
-    //console.log(JSON.stringify(commentJson));
-
     this.course.comments.push(JSON.parse(JSON.stringify(commentJson)));
-    
+
     this.courseService.addComment(this.course).subscribe(
 
       data => {

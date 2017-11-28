@@ -23,37 +23,42 @@ export class ChatComponent implements OnInit, AfterViewChecked {
   constructor(private chatService: ChatService, private userService: UserService,
     private route: ActivatedRoute,
     private router: Router) {
-    this.route.queryParams.subscribe((params: Params) => {
-      
-            this.userService.getById(params['id']).subscribe(
-      
-              data => {
-                console.log(data);
-                this.newUser.nickname=JSON.parse(localStorage.getItem('currentUser')).user.username;
-                this.newUser.room=data.firstName;
-                this.joinRoom();
-              },
-              error => {
-      
-              });
-          });
-  }
 
+   
+    this.route.queryParams.subscribe((params: Params) => {
+
+      this.userService.getById(params['id']).subscribe(
+
+        data => {
+          console.log(data);
+          this.newUser.nickname = JSON.parse(localStorage.getItem('currentUser')).user.username;
+          this.newUser.room = data.firstName;
+          this.joinRoom();
+        },
+        error => {
+
+        });
+    });
+
+  }
   ngOnInit() {
+
     var user = JSON.parse(localStorage.getItem("user"));
-    if(user!==null) {
+    if (user !== null) {
       this.getChatByRoom(user.room);
       this.msgData = { room: user.room, nickname: user.nickname, message: '' }
       this.joinned = true;
       this.scrollToBottom();
     }
     this.socket.on('new-message', function (data) {
-      if(data.message.room === JSON.parse(localStorage.getItem("user")).room) {
+      console.log(localStorage.getItem("user"));
+      if (data.message.room === JSON.parse(localStorage.getItem("user")).room) {
         this.chats.push(data.message);
         this.msgData = { room: user.room, nickname: user.nickname, message: '' }
         this.scrollToBottom();
       }
     }.bind(this));
+
   }
 
   ngAfterViewChecked() {
@@ -63,7 +68,7 @@ export class ChatComponent implements OnInit, AfterViewChecked {
   scrollToBottom(): void {
     try {
       this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
-    } catch(err) { }
+    } catch (err) { }
   }
 
   getChatByRoom(room) {
