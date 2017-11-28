@@ -13,7 +13,8 @@ export class AboutComponent implements OnInit {
   model: any = {};
   source: LocalDataSource;  
   currentRow = event;
-  
+  majors = ['Select major','Computer_Engineering', 'Computer_Science', 'Mechanical_Engineering', 'PlasticsEngineering'];
+  sems = ['Select Semester','Fall_2017','Fall_2018','Spring_2017','Spring_2016'];
 
   test:any = {_id: 3, courseName: "Course_Name_3", courseInstructor: "Course_Instructor_3", courseSem: "Fall_2017", courseCode: "Code_3"};
   settings = {

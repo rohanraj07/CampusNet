@@ -30,7 +30,7 @@ font-family: Montserrat, sans-serif;" class="jumbotron text-center">
                           </div>
                   </form> -->
 
-                <div class="group">
+                <!-- <div class="group">
                     <input type="text" style="width:390px;" class="form-control" name="courseMajor" [(ngModel)]="model.courseMajor" #courseMajor="ngModel" required />
                     <span class="highlight"></span>
                     <span class="bar"></span>
@@ -41,8 +41,22 @@ font-family: Montserrat, sans-serif;" class="jumbotron text-center">
                     <span class="highlight"></span>
                     <span class="bar"></span>
                     <label>Course Semester</label>
+                </div> -->
+
+                <div class="form-group">
+
+                    <select class="form-control" id="major" style="height:35px" required [(ngModel)]="model.courseMajor" name="courseMajor" #coursemajor="ngModel">
+                        <option *ngFor="let major of majors" [value]="major">{{major}}</option>
+                    </select> <br>
                 </div>
-                <button (click)="search()" class="btn  btn-success btn-round">Search</button>
+                <div class="form-group">
+
+                    <select class="form-control" id="major" style="height:35px" required [(ngModel)]="model.courseSem" name="courseSem" #coursesem="ngModel">
+                  <option *ngFor="let sem of sems" [value]="sem">{{sem}}</option>
+                </select>
+                    <button (click)="search()" class="btn  btn-success btn-round">Search</button>
+                </div>
+
             </div>
         </div>
     </div>

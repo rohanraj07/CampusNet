@@ -300,7 +300,8 @@ input:focus~.highlight {
 
 /* ************** SEARCH BUTTON ****************/
 
-button {
+button,
+select {
     margin: auto;
     display: block;
     background: transparent;
@@ -310,4 +311,8 @@ button {
     padding: 8px 20px;
     cursor: pointer;
     justify-content: center;
+}
+
+label {
+    display: table-cell;
 }
