@@ -22,7 +22,6 @@ export class ChartsComponent implements OnInit {
       this.courseService.getall().subscribe(
       
               data => {
-      debugger;
                 for (let course of data) {
                   this.pie_data.push({name:course.courseName, value: course.courseUsers.length})
                 }
