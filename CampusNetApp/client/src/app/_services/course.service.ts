@@ -18,4 +18,8 @@ export class CourseService {
   addComment(course: Course) {
     return this.http.post('/course/addcomment', course);
   }
+
+  getall() {
+    return this.http.get('/course/allcourses').map((response: Response) => response.json());
+  }
 }

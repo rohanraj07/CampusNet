@@ -31,6 +31,12 @@ import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2
 import { ReactiveFormsModule } from '@angular/forms';
 import { CoursedetailsComponent } from './coursedetails/coursedetails.component';
 import { ChatComponent } from './chat/chat.component';
+import { ChartsComponent } from './charts/charts.component';
+import * as FusionCharts from 'fusioncharts';
+import * as Charts from 'fusioncharts/fusioncharts.charts';
+import * as FintTheme from 'fusioncharts/themes/fusioncharts.theme.fint';
+import { FusionChartsModule } from 'angular4-fusioncharts';
+
 
 @NgModule({
   declarations: [
@@ -45,6 +51,7 @@ import { ChatComponent } from './chat/chat.component';
     AboutComponent,
     CoursedetailsComponent,
     ChatComponent,
+    ChartsComponent,
   
 
   ],
@@ -63,6 +70,7 @@ import { ChatComponent } from './chat/chat.component';
     BrowserAnimationsModule,
     AngularMultiSelectModule,
     ReactiveFormsModule,
+    FusionChartsModule.forRoot(FusionCharts, Charts, FintTheme)
     
   ],
   providers: [
