@@ -21,6 +21,21 @@ router.post('/search-course-by-major-sem', (req, res) => {
       });
   });
 
+  router.post('/addcomment', (req, res) => {
+    
+    var course = req.body;
+
+    
+    Course.addComment(course, (err, course) => {
+        
+        if(err){
+            throw err;
+        }else{
+            return res.json(courses);
+        }
+      });
+  });
+
   // Search Courses by id
 router.get('/getCourseById/:id', (req, res) => {
     

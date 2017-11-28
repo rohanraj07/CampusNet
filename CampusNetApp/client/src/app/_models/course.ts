@@ -19,6 +19,6 @@ export class Course {
 
     courseTextbooks:String[];
 
-    comments:String[];
+    comments:any[];
     
 }

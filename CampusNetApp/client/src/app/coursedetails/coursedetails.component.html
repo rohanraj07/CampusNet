@@ -1,50 +1,57 @@
 <div class="container">
-        <div>
-                
-                          <p>{{course.courseName}}</p>
-                          <p>{{course.courseInstructor}}</p>
-                
-                          <p>{{course.courseRating}}</p>
+    <div>
 
-                          <div *ngFor="let item of course.courseTextbooks">
-                            <p>{{item.textbookTitle}}</p>
-                          </div>
-                          
-                          <p>{{course.courseCode}}</p>            
-     
-                        </div>
-                        <h3 class="mb-2">Comments</h3>
+        <p>{{course.courseName}}</p>
+        <p>{{course.courseInstructor}}</p>
+        <p>{{course.courseRating}}</p>
+        <div *ngFor="let item of course.courseTextbooks">
+            <p>{{item.textbookTitle}}</p>
+        </div>
+        <p>{{course.courseCode}}</p>
+    </div>
+    <h3 class="mb-2">Comments</h3>
     <div class="row">
-        
+
         <div class="comments col-md-9" id="comments">
-            
+
             <!-- comment -->
             <div *ngFor="let item of course.comments" class="row">
                 <div class="comment-avatar col-md-1 col-sm-2 text-center">
-                    <a href=""><img class="mx-auto rounded-circle img-fluid" src="http://demos.themes.guide/bodeo/assets/images/users/m103.jpg" alt="avatar"></a>
+                    <a href="">
+                        <img class="mx-auto rounded-circle img-fluid" src="http://demos.themes.guide/bodeo/assets/images/users/m103.jpg"
+                            alt="avatar">
+                    </a>
                 </div>
                 <div class="col-md-11 col-sm-10">
-                    <h6 class="small comment-meta"><a href="#">{{item.user}}</a> &nbsp;&nbsp;{{item.date}} </h6>
-                    
-                        <p>
-                            {{item.comment}}
-                        </p>
-                    
+                    <h6 class="small comment-meta">
+                        <a href="#">{{item.user}}</a> &nbsp;&nbsp;{{item.date}} </h6>
+
+                    <p>
+                        {{item.comment}}
+                    </p>
+
                 </div>
-               <!-- /reply is indented -->
+                <!-- /reply is indented -->
             </div>
             <!-- /comment -->
             <!-- comment -->
-            
 
-            
+
+
 
         </div>
     </div>
 
     <div class="pt-2">
-            <div class="col-12">
-                <a href="" class="btn btn-sm btn-primary">Comment</a>
-            </div>
+        <div class="col-12">
+            <form  (ngSubmit)="f.form.valid && comment()" #f="ngForm" novalidate>
+                <input type="text" class="form-control" name="comment" [(ngModel)]="commentStr" value="" required="true" />
+         
+                <span class="highlight"></span>
+                <span class="bar"></span>
+
+                <button  class="btn  btn-success btn-round">Comment</button>
+            </form>
         </div>
+    </div>
 </div>

@@ -9,11 +9,15 @@ export class CourseService {
 
   getById(_id: string) {
     return this.http.get('/course/getCourseById/' + _id)
-    .map((response: Response) => 
-    response.json());
+      .map((response: Response) =>
+        response.json());
   }
 
   getCoursesMajorSem(model) {
     return this.http.post('/course/search-course-by-major-sem', model);
+  }
+
+  addComment(course: Course) {
+    return this.http.post('/course/addcomment', course);
   }
 }

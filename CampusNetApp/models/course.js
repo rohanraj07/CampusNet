@@ -49,9 +49,9 @@ const CourseSchema = mongoose.Schema({
     }],
 
     comments: [{
-        user : String,
-        time:Date,
-        comment:String
+        user: String,
+        date: Date,
+        comment: String
     }]
 
 });
@@ -67,5 +67,18 @@ module.exports.getCourseByMajorSemester = function (major, semester, callback) {
 
     Course.find({ $and: [{ courseMajor: major }, { courseSem: semester }] }, callback);
 
+}
+
+module.exports.addComment = function (course, callback) {
+    course.comments[course.comments.length - 1].date = new Date();
+    //console.log(course);
+    Course.findByIdAndUpdate(
+        course._id,
+        { $push: { comments: course.comments[course.comments.length - 1] } },
+        { new: true },
+        function (err, model) {
+            console.log(model);
+        }
+    );
 }
 
