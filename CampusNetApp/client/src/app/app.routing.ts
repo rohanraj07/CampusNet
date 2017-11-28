@@ -21,7 +21,7 @@ const routes: Routes =[
     { path: 'landing',          component: LandingComponent },
     { path: 'course-net',            component: AboutComponent , canActivate: [AuthGuard] },
     { path: 'course-details',    component: CoursedetailsComponent , canActivate: [AuthGuard] },
-    { path: 'chat',    component: ChatComponent , canActivate: [AuthGuard] },
+    { path: 'chat',    component: ChatComponent },
     {path: 'profile',  component: ProfileComponent, canActivate: [AuthGuard] },
     {path: '', redirectTo: 'landing', pathMatch: 'full' },
     { path: 'charts',    component: ChartsComponent , canActivate: [AuthGuard] }

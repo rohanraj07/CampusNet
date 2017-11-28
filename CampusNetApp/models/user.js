@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const config = require('../config/database');
 const autoIncrement = require('mongoose-auto-increment');
 var connection = mongoose.createConnection(config.database);
+const Course = require('../models/course');
 
 autoIncrement.initialize(connection);
 
@@ -43,16 +44,45 @@ const UserSchema = mongoose.Schema({
 UserSchema.plugin(autoIncrement.plugin, 'User');
 const User = module.exports = mongoose.model('User', UserSchema);
 
-module.exports.getUserById = function(id, callback) {
+module.exports.getUserById = function (id, callback) {
     User.findById(id, callback);
 }
 
-module.exports.getUserByUsername = function(username, callback) {
+module.exports.getUserByUsername = function (username, callback) {
     const query = { username: username }
     User.findOne(query, callback);
 }
 
-module.exports.addUser = function(newUser, callback) {
+module.exports.getLastestId = function (callback) {
+    User.findOne({}, {}, { sort: { 'created_at': -1 } }, function (err, post) {
+        console.log(post._id);
+        callback(post._id);
+    });
+}
+
+module.exports.addUser = function (newUser, callback) {
+
+    let allCourses = newUser.prevcourses.concat(newUser.currentcourses);
+    let userId = 0;
+
+    User.findOne({}, {}, { sort: { '_id': -1 } }, function (err, post) {
+        console.log(post._id);
+        for (var i = 0; i < allCourses.length; i++) {
+            
+                    //console.log(newUser);
+                    Course.addUserToCourse(allCourses[i], post._id +1 , newUser.firstName + ' ' + newUser.lastName, (err, course) => {
+            
+                        if (err) {
+                            throw err;
+                        } else {
+                            console.log('courses added');
+                        }
+                    });
+            
+                }
+    });
+
+    
     bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
             if (err) throw err;
@@ -62,7 +92,7 @@ module.exports.addUser = function(newUser, callback) {
     });
 }
 
-module.exports.comparePassword = function(candidatePassword, hash, callback) {
+module.exports.comparePassword = function (candidatePassword, hash, callback) {
     bcrypt.compare(candidatePassword, hash, (err, isMatch) => {
         if (err) throw err;
         callback(null, isMatch);
