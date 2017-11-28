@@ -60,9 +60,9 @@ font-family: Montserrat, sans-serif;" class="jumbotron text-center">
                 <div class="rowdo" *ngFor="let item of course.courseUsers">
                         <div class="col-xs-15 col-md-15" >
                                 
-                                                    <a [routerLink]="['/chat']" [queryParams]="{ id: [item.userCourseId] }" class="btn btn-success btn-lg" role="button">
+                                                    <a [routerLink]="['/chat']" [queryParams]="{ id: [item.userCourseId] }" class="btn btn-success btn-sm" role="button">
                                                         <span class="glyphicon glyphicon-user"></span>
-                                                        <br/>{{item.userName}}</a>
+                                                        {{item.userName}}</a>
                                 
                                                         <!-- <a [routerLink]="['/course-details']" [queryParams]="{ id: [user._id] }">Course Detail</a> -->
                                                 </div>
@@ -70,6 +70,5 @@ font-family: Montserrat, sans-serif;" class="jumbotron text-center">
             </div>
         </div>
     </div>
-        
 </div>
 </div>
