@@ -19,13 +19,13 @@ export class SignupComponent implements OnInit {
 
 
     itemList = [
-        { "id": 1, "itemName": "IWS", "category": "Computer Science" },
-        { "id": 2, "itemName": "HCI", "category": "Computer Science" },
-        { "id": 3, "itemName": "OS", "category": "Computer Engineering" },
-        { "id": 4, "itemName": "Network", "category": "Computer Engineering" },
-        { "id": 5, "itemName": "Chemistry", "category": "Plastics Engineering" },
-        { "id": 6, "itemName": "Robotics", "category": "Mechanical Engineering" }
-    ];
+       { "id": 1, "itemName": "Internet and Web Systems", "category": "Computer Science" },
+       { "id": 2, "itemName": "Human Computer Interaction", "category": "Computer Science" },
+       { "id": 3, "itemName": "Operating Systems", "category": "Computer Engineering" },
+       { "id": 4, "itemName": "Networking Systems", "category": "Computer Engineering" },
+       { "id": 5, "itemName": "Chemistry", "category": "Plastics Engineering" },
+       { "id": 6, "itemName": "Robotics", "category": "Mechanical Engineering" }
+   ];
     prevselectedItems = [];
     currentselectedItems = [];
     settings = {};
