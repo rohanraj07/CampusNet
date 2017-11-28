@@ -19,18 +19,19 @@ export class ChatComponent implements OnInit, AfterViewChecked {
   newUser = { nickname: '', room: '' };
   msgData = { room: '', nickname: '', message: '' };
   socket = io('http://localhost:4000');
+  friendUser : any;
 
   constructor(private chatService: ChatService, private userService: UserService,
     private route: ActivatedRoute,
     private router: Router) {
 
-   
     this.route.queryParams.subscribe((params: Params) => {
 
       this.userService.getById(params['id']).subscribe(
 
         data => {
           console.log(data);
+          this.friendUser = data;
           this.newUser.nickname = JSON.parse(localStorage.getItem('currentUser')).user.username;
           this.newUser.room = data.firstName;
           this.joinRoom();
@@ -42,7 +43,7 @@ export class ChatComponent implements OnInit, AfterViewChecked {
 
   }
   ngOnInit() {
-
+    //this.logout();
     var user = JSON.parse(localStorage.getItem("user"));
     if (user !== null) {
       this.getChatByRoom(user.room);
