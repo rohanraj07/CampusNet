@@ -40,7 +40,8 @@ const CourseSchema = mongoose.Schema({
     },
 
     courseUsers: [{
-        user: Number
+        userCourseId:String,
+        userName:String
     }],
 
     courseTextbooks: [{
@@ -82,3 +83,15 @@ module.exports.addComment = function (course, callback) {
     );
 }
 
+module.exports.addUserToCourse = function (courseId, userId, userName, callback) {
+   
+    //console.log(course);
+    Course.findByIdAndUpdate(
+        courseId,
+        { $push: { courseUsers: {userCourseId :  userId , userName : userName}} },
+        { new: true },
+        function (err, model) {
+            console.log(model);
+        }
+    );
+}

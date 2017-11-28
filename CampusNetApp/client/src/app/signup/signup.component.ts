@@ -117,10 +117,8 @@ export class SignupComponent implements OnInit {
 
 
     register() {
-        this.loading = true;
-        //console.log(this.model);
-        //console.log(this.selectedItems);
-
+        this.loading = false;
+        
         for (let result of this.prevselectedItems) {
             this.prevCourses.push(result.id);
         }

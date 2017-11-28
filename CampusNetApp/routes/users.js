@@ -4,6 +4,8 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const config = require('../config/database');
 const User = require('../models/user');
+const Course = require('../models/course');
+
 
 // Register
 router.post('/register', (req, res, next) => {
@@ -15,9 +17,23 @@ router.post('/register', (req, res, next) => {
         username: req.body.username,
         password: req.body.password,
         prevcourses: req.body.prevcourses,
-        currentcourses: req.body.currentcourses
+        currentcourses: req.body.currentcourses,
+        
     });
 
+    let allCourses= newUser.prevcourses.concat(newUser.currentcourses);
+
+    for (var i = 0; i < allCourses.length; i++) {
+        Course.addUserToCourse(allCourses[i], newUser._id, newUser.firstName + ' ' + newUser.lastName, (err, course) => {
+
+            if (err) {
+                throw err;
+            } else {
+               console.log('courses added');
+            }
+        });
+
+    }
 
     User.getUserByUsername(newUser.username, (err, user) => {
         if (err) throw err;
@@ -37,9 +53,7 @@ router.post('/register', (req, res, next) => {
         }
     });
 
-
-    //console.log(req.body);
-
+    
 
 });
 
