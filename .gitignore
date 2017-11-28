@@ -1,2 +1,4 @@
 /CampusNetApp/node_modules
 /CampusNetApp/client/node_modules
+CampusNetApp/client/package-lock.json
+CampusNetApp/package-lock.json
