@@ -51,4 +51,15 @@ router.get('/getCourseById/:id', (req, res) => {
       });
   });
 
+  router.get('/allcourses', (req, res) => {
+    Course.find({}, (err, courses) => {
+        
+        if(err){
+            throw err;
+        }else{
+            return res.json(courses);
+        }
+      });
+  });
+
 module.exports = router;
