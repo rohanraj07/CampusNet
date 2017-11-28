@@ -13,17 +13,16 @@ import { CoursedetailsComponent } from './coursedetails/coursedetails.component'
 
 import { AuthGuard } from './_guards/index';
 import { ChatComponent } from 'app/chat/chat.component';
-
 const routes: Routes =[
     { path: 'home',             component: HomeComponent, canActivate: [AuthGuard] },
-    { path: 'user-profile',     component: ProfileComponent , canActivate: [AuthGuard] },
     { path: 'signup',           component: SignupComponent},
     { path: 'login',            component: LoginComponent },
     { path: 'landing',          component: LandingComponent },
     { path: 'course-net',            component: AboutComponent , canActivate: [AuthGuard] },
     { path: 'course-details',    component: CoursedetailsComponent , canActivate: [AuthGuard] },
     { path: 'chat',    component: ChatComponent , canActivate: [AuthGuard] },
-    { path: '', redirectTo: 'landing', pathMatch: 'full' },
+    {path: 'profile',  component: ProfileComponent, canActivate: [AuthGuard] },
+    {path: '', redirectTo: 'landing', pathMatch: 'full' },
 ];
 
 @NgModule({

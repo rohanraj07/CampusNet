@@ -1,86 +1,89 @@
-<div class="wrapper">
-    <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('../assets/img/fabio-mangione.jpg');">
-        <div class="filter"></div>
-    </div>
-    <div class="section profile-content">
-        <div class="container">
-            <div class="owner">
-                <div class="avatar">
-                    <img src="../assets/img/faces/joe-gardner-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                </div>
-                <div class="name">
-                    <h4 class="title">Jane Faker<br /></h4>
-                    <h6 class="description">Music Producer</h6>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 ml-auto mr-auto text-center">
-                    <p>An artist of considerable range, Jane Faker — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
-                    <br />
-                    <button class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Settings</button>
-                </div>
-            </div>
-            <br/>
-            <div class="nav-tabs-navigation">
-                <div class="nav-tabs-wrapper">
-                    <ngb-tabset [justify]="'center'">
-                        <ngb-tab title="Follows">
-                            <ng-template ngbTabContent >
-                                <div class="row following" id="follows">
-                                    <div class="col-md-6 ml-auto mr-auto">
-                                        <ul class="list-unstyled follows">
-                                            <li>
-                                                <div class="row">
-                                                    <div class="col-md-2 col-sm-2 ml-auto mr-auto">
-                                                        <img src="../assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                                                    </div>
-                                                    <div class="col-md-7 col-sm-4 ml-auto">
-                                                        <h6>Flume<br/><small>Musical Producer</small></h6>
-                                                    </div>
-                                                    <div class="col-md-3 col-sm-2 ml-auto mr-auto">
-                                                        <div class="form-check">
-                                                          <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" value="" checked="">
-                                                            <span class="form-check-sign"></span>
-                                                          </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <hr />
-                                            <li>
-                                                <div class="row">
-                                                    <div class="col-md-2 col-sm-2 ml-auto mr-auto">
-                                                        <img src="../assets/img/faces/ayo-ogunseinde-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                                                    </div>
-                                                    <div class="col-md-7 col-sm-4 ml-auto">
-                                                        <h6>Banks<br /><small>Singer</small></h6>
-                                                    </div>
-                                                    <div class="col-md-3 col-sm-2 ml-auto mr-auto">
-                                                        <div class="form-check">
-                                                          <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" value="" checked="">
-                                                            <span class="form-check-sign"></span>
-                                                          </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </ng-template>
-                        </ngb-tab>
-                        <ngb-tab title="Following">
-                            <ng-template ngbTabContent>
-                                <h3 class="text-muted">Not following anyone yet :(</h3>
-                                <br>
-                                <button class="btn btn-warning btn-round">Find artists</button>
-                            </ng-template>
-                        </ngb-tab>
-                    </ngb-tabset>
-                </div>
-            </div>
+<!-- Container (The Band Section) -->
+<!-- <div id="band" class="container text-center"> -->
+<!--         <h5>Welcome to</h5><h3>CAMPUSNET</h3>
+        <p><em>We make connecting easy, You make connecting fun!</em></p>
+         -->
+         <div class="jumbotron text-center">
+            <br />
+            <h1>CAMPUSNET</h1>
+            <p>We make connecting easy, You make connecting fun!</p>
+            <br />
         </div>
-    </div>
-</div>
+        <div class="container">
+            <div class="row">
+            <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+                 <A href="edit.html" >Edit Profile</A>
+      
+              <A href="edit.html" >Logout</A>
+             <br>
+      <p class=" text-info">May 05,2014,03:00 pm </p>
+            </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+         
+         
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Rakesh Musalay</h3>
+                  </div>
+                  <div class="panel-body">
+                    <div class="row">
+                      <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
+                      
+                      <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
+                        <dl>
+                          <dt>DEPARTMENT:</dt>
+                          <dd>Administrator</dd>
+                          <dt>HIRE DATE</dt>
+                          <dd>11/12/2013</dd>
+                          <dt>DATE OF BIRTH</dt>
+                             <dd>11/12/2013</dd>
+                          <dt>GENDER</dt>
+                          <dd>Male</dd>
+                        </dl>
+                      </div>-->
+                      <div class=" col-md-9 col-lg-9 "> 
+                        <table class="table table-user-information">
+                          <tbody>
+                            <tr>
+                              <td>Major:</td>
+                              <td>Computer Engineering</td>
+                            </tr>
+                            <tr>
+                              <td>Year:</td>
+                              <td>Graduate Senior</td>
+                            </tr>
+                            <tr>
+                              <td>Current Courses</td>
+                              <td>Data Fusion, Internet and web systems, Verilog Desing</td>
+                            </tr>
+                         
+                               <tr>
+                                   <tr>
+                              <td>Previous Courses</td>
+                              <td>IOT, SDN, Operating Systems</td>
+                            </tr>
+                              <tr>
+                              <td>Home Address</td>
+                              <td>Lowell</td>
+                            </tr>
+                            <tr>
+                              <td>Email</td>
+                              <td><a href="mailto:info@support.com">KC1HTB@gmail.com</a></td>
+                            </tr>
+                            <tr>
+                              <td>Phone Number</td>
+                              <td>123-4567-890(Landline)<br><br>555-4567-890(Mobile)</td>
+                            </tr>
+                           
+                          </tbody>
+                        </table>
+    
+                      </div>
+                    </div>
+                  </div>
+                       
+                  
+                </div>
+              </div>
+            </div>
+          </div>

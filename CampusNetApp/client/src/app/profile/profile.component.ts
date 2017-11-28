@@ -8,6 +8,12 @@ import { Component, OnInit } from '@angular/core';
 
 export class ProfileComponent implements OnInit {
 
+    model = {
+        left: true,
+        middle: false,
+        right: false
+    };
+
     constructor() { }
 
     ngOnInit() {}
