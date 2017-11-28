@@ -10,7 +10,7 @@ background: radial-gradient(closest-corner, rgba(16, 47, 70, 0) 60%, rgba(16, 47
 */
 
 .body {
-    background: radial-gradient(closest-corner, rgba(16, 47, 70, 0) 60%, rgba(16, 47, 70, 0.26)), linear-gradient(108deg, #26D0CE, #1A2980 90%);
+    background: radial-gradient(closest-corner, rgba(73, 64, 64, 0.404) 60%, rgba(126, 13, 13, 0.397)), linear-gradient(108deg, rgb(168, 14, 14), #1A2980 90%);
     justify-content: center;
 }
 
@@ -20,7 +20,8 @@ background: radial-gradient(closest-corner, rgba(16, 47, 70, 0) 60%, rgba(16, 47
     /* padding: 0 5%; */
 }
 
-h1 {
+
+/* h1 {
     text-align: center;
     font-size: 3rem;
     color: rgba(255, 255, 255, .8);
@@ -28,7 +29,7 @@ h1 {
     line-height: 1.375;
     margin: 0 0 2.4rem 0;
     letter-spacing: 1px
-}
+} */
 
 h2 {
     text-align: right;
@@ -299,7 +300,8 @@ input:focus~.highlight {
 
 /* ************** SEARCH BUTTON ****************/
 
-button {
+button,
+select {
     margin: auto;
     display: block;
     background: transparent;
@@ -309,4 +311,8 @@ button {
     padding: 8px 20px;
     cursor: pointer;
     justify-content: center;
+}
+
+label {
+    display: table-cell;
 }

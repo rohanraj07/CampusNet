@@ -23,11 +23,14 @@ import { HttpModule } from '@angular/http';
 import { customHttpProvider } from './_helpers/index';
 import { AlertComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
-import { AlertService, AuthenticationService, UserService, CourseService } from './_services/index';
+import { AlertService, AuthenticationService, UserService, CourseService, ChatService } from './_services/index';
 
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { AboutComponent } from './about/about.component';
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CoursedetailsComponent } from './coursedetails/coursedetails.component';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +44,7 @@ import { CoursedetailsComponent } from './coursedetails/coursedetails.component'
     AlertComponent,
     AboutComponent,
     CoursedetailsComponent,
+    ChatComponent,
   
 
   ],
@@ -57,6 +61,8 @@ import { CoursedetailsComponent } from './coursedetails/coursedetails.component'
     Ng2SmartTableModule,
     ToasterModule,
     BrowserAnimationsModule,
+    AngularMultiSelectModule,
+    ReactiveFormsModule,
     
   ],
   providers: [
@@ -65,7 +71,8 @@ import { CoursedetailsComponent } from './coursedetails/coursedetails.component'
     AlertService,
     AuthenticationService,
     UserService,
-    CourseService
+    CourseService,
+    ChatService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,13 +1,20 @@
 <!-- <div *ngIf="edited" class="alert alert-success box-msg" role="alert">
   <strong>List Saved!</strong> Your changes has been saved.
 </div> -->
+<div style="background-color: gray;
+color: #fff;
+padding: 100px 25px;
+font-family: Montserrat, sans-serif;" class="jumbotron text-center">
+    <br/>
+    <h1>Welcome To CourseNet</h1>
+</div>
 <div class="body">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
-                <div class="card card-register bg-dark">
-                    <h3 class="text-center title jumbotron" style="color:black">Look for Courses</h3>
-                    <!--   <form class="register-form" (ngSubmit)="f.form.valid && search()" #f="ngForm" novalidate>
+
+                <h3 class="text-center title jumbotron" style="color:black">Look for Courses</h3>
+                <!--   <form class="register-form" (ngSubmit)="f.form.valid && search()" #f="ngForm" novalidate>
                       <div class="form-group" [ngClass]="{ 'has-error': f.submitted }">
                               <label for="Major">Major</label>
                               <input type="text" class="form-control" name="courseMajor" [(ngModel)]="model.courseMajor" #courseMajor="ngModel" required />
@@ -22,20 +29,34 @@
                               <button class="btn btn-success btn-block btn-round">Search</button>
                           </div>
                   </form> -->
-                </div>
-                <div class="group">
-                    <input type="text" class="form-control" name="courseMajor" [(ngModel)]="model.courseMajor" #courseMajor="ngModel" value="Norway" selectBoxOptions="Canada;Denmark;Finland;Germany;Mexico" required />
+
+                <!-- <div class="group">
+                    <input type="text" style="width:390px;" class="form-control" name="courseMajor" [(ngModel)]="model.courseMajor" #courseMajor="ngModel" required />
                     <span class="highlight"></span>
                     <span class="bar"></span>
-                    <label>Course Name:</label>
+                    <label>Major Name</label>
                 </div>
                 <div class="group">
-                    <input type="text" class="form-control" name="courseSem" [(ngModel)]="model.courseSem" #courseMajor="ngModel" required />
+                    <input type="text" style="width:390px;" class="form-control" name="courseSem" [(ngModel)]="model.courseSem" #courseMajor="ngModel" required />
                     <span class="highlight"></span>
                     <span class="bar"></span>
                     <label>Course Semester</label>
+                </div> -->
+
+                <div class="form-group">
+
+                    <select class="form-control" id="major" style="height:35px" required [(ngModel)]="model.courseMajor" name="courseMajor" #coursemajor="ngModel">
+                        <option *ngFor="let major of majors" [value]="major">{{major}}</option>
+                    </select> <br>
                 </div>
-                <button (click)="search()" class="btn  btn-success btn-round">Search</button>
+                <div class="form-group">
+
+                    <select class="form-control" id="major" style="height:35px" required [(ngModel)]="model.courseSem" name="courseSem" #coursesem="ngModel">
+                  <option *ngFor="let sem of sems" [value]="sem">{{sem}}</option>
+                </select>
+                    <button (click)="search()" class="btn  btn-success btn-round">Search</button>
+                </div>
+
             </div>
         </div>
     </div>

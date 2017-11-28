@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angular2-multiselect-dropdown": "^2.1.2",
     "bcryptjs": "*",
     "body-parser": "*",
     "cors": "*",
@@ -19,6 +20,7 @@
     "mongoose": "*",
     "mongoose-auto-increment": "^5.0.1",
     "passport": "*",
-    "passport-jwt": "*"
+    "passport-jwt": "*",
+    "socket.io": "^2.0.4"
   }
 }

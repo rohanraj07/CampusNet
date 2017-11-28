@@ -4,4 +4,7 @@
     password: string;
     firstName: string;
     lastName: string;
-}
+    major: string;
+    prevcourses: string[];
+    currentcourses: string[];
+ }

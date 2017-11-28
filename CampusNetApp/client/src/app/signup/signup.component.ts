@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertService, UserService } from '../_services/index';
+
+import {User} from '../_models/user';
 
 @Component({
    selector: 'app-signup',
@@ -13,14 +15,127 @@ export class SignupComponent implements OnInit {
    test: Date = new Date();
    loading = false;
 
+   majors = ['Computer Engineering', 'Computer Science', 'Mechanical Engineering', 'Plastics Engineering'];
+
+
+   itemList = [
+    { "id":1, "itemName": "IWS", "category": "Computer Science" },
+    { "id":2, "itemName": "HCI", "category": "Computer Science" },
+    { "id":3, "itemName": "OS", "category": "Computer Engineering" },
+    { "id":4, "itemName": "Network", "category": "Computer Engineering" },
+    { "id":5, "itemName": "Chemistry", "category": "Plastics Engineering" },
+    { "id":6, "itemName": "Robotics", "category": "Mechanical Engineering" }
+   ];
+   prevselectedItems = [];
+   currentselectedItems = [];
+   settings = {};
+
+   user = new User();
+
+   prevCourses:string[] = [];
+   currentCourses:string[] = [];
+   userForm: FormGroup;
+
+
+
    constructor(private router: Router,
        private userService: UserService,
-       private alertService: AlertService) { }
+       private alertService: AlertService,
+    private fb: FormBuilder) {
+        this.createForm();
+     }
 
-   ngOnInit() { }
+
+     createForm() {
+        this.userForm = this.fb.group({
+            name: '',
+            email: ['', Validators.required],
+            prevcourses: [[], Validators.required],
+            currentcourses: [[], Validators.required]
+        });
+    }
+
+    submitForm() {
+        console.log(this.userForm);
+    }
+
+
+
+   ngOnInit() {
+    this.settings = {
+        text: "Select Fields",
+        selectAllText: 'Select All',
+        unSelectAllText: 'UnSelect All',
+        searchPlaceholderText: 'Search Fields',
+        enableSearchFilter: true,
+        badgeShowLimit: 4,
+        groupBy: "category"
+    };
+    }
+
+    onItemSelect(item: any) {
+        //console.log(item);
+        //console.log(this.selectedItems);
+    }
+    OnItemDeSelect(item: any) {
+        //console.log(item);
+        //console.log(this.selectedItems);
+    }
+    onSelectAll(items: any) {
+        //console.log(items);
+    }
+    onDeSelectAll(items: any) {
+        //console.log(items);
+    }
+    showModel() {
+        //console.log(this.selectedItems);
+      }
+    changeData() {
+        this.prevselectedItems = [];
+      }
+
+      onItemSelect1(item1: any) {
+        //console.log(item);
+        //console.log(this.selectedItems);
+    }
+    OnItemDeSelect1(item1: any) {
+        //console.log(item);
+        //console.log(this.selectedItems);
+    }
+    onSelectAll1(items1: any) {
+        //console.log(items);
+    }
+    onDeSelectAll1(items1: any) {
+        //console.log(items);
+    }
+    showModel1() {
+        //console.log(this.selectedItems);
+      }
+    changeData1() {
+        this.currentselectedItems = [];
+      }
+
 
    register() {
        this.loading = true;
+       //console.log(this.model);
+       //console.log(this.selectedItems);
+       
+       for(let result of this.prevselectedItems){
+          this.prevCourses.push(result.itemName);
+       }
+
+       this.model.prevcourses = this.prevCourses;
+
+       for(let result1 of this.currentselectedItems){
+        this.currentCourses.push(result1.itemName);
+     }
+
+     this.model.currentcourses = this.currentCourses;
+
+
+     console.log(this.model);
+
        this.userService.create(this.model)
            .subscribe(
            data => {
@@ -40,4 +155,5 @@ export class SignupComponent implements OnInit {
                this.loading = false;
            });
    }
+   
 }
