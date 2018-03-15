@@ -1,0 +1,13 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1 blueColored>Hello World!</h1>
+</div>
+
+<ul *ngFor="let language of myFavLang; let i = index;">
+  <li>{{i}} - {{language.name}} - {{language.type}}</li>
+</ul>
+
+<ng-template #oddClicked>Odd number of clicks</ng-template>
+<ng-template #evenClicked>Even number of clicks</ng-template>
+
+
